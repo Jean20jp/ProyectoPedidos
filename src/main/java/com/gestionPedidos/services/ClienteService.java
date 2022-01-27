@@ -1,7 +1,7 @@
 package com.gestionPedidos.services;
 
 import com.gestionPedidos.models.Clientes;
-import com.gestionPedidos.repository.ClienteRepository;
+import com.gestionPedidos.repository.ClientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class ClienteService  {
 
     @Autowired
-    private ClienteRepository clientesRepository;
+    private ClientesRepository clientesRepository;
 
     public List<Clientes> obtenerCliente() {
         return (List<Clientes>) clientesRepository.findAll();
