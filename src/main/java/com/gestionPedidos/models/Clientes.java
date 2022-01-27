@@ -27,4 +27,36 @@ public class Clientes implements Serializable {
 
     @Column(name = "sal_cli")
     private int salCli;
+
+    public String getIdCli() {
+        return idCli;
+    }
+
+    public void setIdCli(String idCli) {
+        this.idCli = idCli;
+    }
+
+    public String getNomCli() {
+        return nomCli;
+    }
+
+    public void setNomCli(String nomCli) {
+        this.nomCli = nomCli;
+    }
+
+    public String getApeCli() {
+        return apeCli;
+    }
+
+    public void setApeCli(String apeCli) {
+        this.apeCli = apeCli;
+    }
+
+    public int getSalCli() {
+        return salCli;
+    }
+
+    public void setSalCli(int salCli) {
+        this.salCli = salCli;
+    }
 }

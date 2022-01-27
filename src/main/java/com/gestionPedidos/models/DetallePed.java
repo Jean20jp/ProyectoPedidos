@@ -21,4 +21,28 @@ public class DetallePed implements Serializable {
 
     @Column(name = "id_art_ped", length = 5)
     private String idArt;
+
+    public int getIdPed() {
+        return idPed;
+    }
+
+    public void setIdPed(int idPed) {
+        this.idPed = idPed;
+    }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
+    }
+
+    public String getIdArt() {
+        return idArt;
+    }
+
+    public void setIdArt(String idArt) {
+        this.idArt = idArt;
+    }
 }
