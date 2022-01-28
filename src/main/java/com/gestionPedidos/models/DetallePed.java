@@ -13,6 +13,10 @@ import java.io.Serializable;
 public class DetallePed implements Serializable {
 
     @Id
+    @GeneratedValue
+    @Column(name = "id_det_ped")
+    private int idDet;
+
     @Column(name = "id_ped_per")
     private int idPed;
 
@@ -21,6 +25,15 @@ public class DetallePed implements Serializable {
 
     @Column(name = "id_art_ped", length = 5)
     private String idArt;
+
+    public int getIdDet() {
+        return idDet;
+    }
+
+    public void setIdDet(int idDet) {
+        this.idDet = idDet;
+    }
+
 
     public int getIdPed() {
         return idPed;
