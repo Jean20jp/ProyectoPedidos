@@ -59,5 +59,7 @@ public class ClientesController {
             throw new Exception("Nombre No Valido");
         if (!ModelUtils.esSoloLetras(objCliente.getApeCli()))
             throw new Exception("Apellido No Valido");
+        if (!ModelUtils.validatePassword(objCliente.getContCli()))
+            throw new Exception("Contraseña no valida");
     }
 }

@@ -33,30 +33,6 @@ public class Clientes implements Serializable {
     @Column(name = "sal_cli")
     private int salCli;
 
-    public boolean validatePassword(String password) {
-        int length = password.length();
-        if (length >= 4 && length <= 15 && searchNumeroInPassword(password) && searchMayusInPassword(password))
-            return true;
-        return false;
-    }
-
-    private boolean searchNumeroInPassword(String password) {
-        for (Character c : password.toCharArray()) {
-            if (c.equals('0') || c.equals('1') || c.equals('2') || c.equals('3') || c.equals('4')
-                    || c.equals('5') || c.equals('6') || c.equals('7') || c.equals('8') || c.equals('9') )
-                    return true;
-        }
-        return false;
-    }
-
-    private boolean searchMayusInPassword(String password) {
-        for (Character c : password.toCharArray()) {
-            if (Character.isUpperCase(c))
-                return true;
-        }
-        return false;
-    }
-
     public String getIdCli() {
         return idCli;
     }
