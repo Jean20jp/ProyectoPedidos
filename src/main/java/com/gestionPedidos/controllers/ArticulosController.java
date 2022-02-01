@@ -15,7 +15,7 @@ public class ArticulosController {
 
     public ArticulosController(ArticuloService articuloService) {
         super();
-        this.articuloService = this.articuloService;
+        this.articuloService = articuloService;
     }
 
     @GetMapping(produces = "application/json")
