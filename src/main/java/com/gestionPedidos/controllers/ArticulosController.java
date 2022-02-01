@@ -23,6 +23,11 @@ public class ArticulosController {
         return articuloService.obtenerArticulos();
     }
 
+    @GetMapping("/articulo")
+    public Articulos obtenerArticulos(@RequestParam(name = "idArt") String idArt){
+        return articuloService.obtenerArticulo(idArt);
+    }
+
     @PostMapping(produces = "application/json")
     public Articulos ingresarArticulo(@RequestBody @Validated Articulos objArticulo){
         try {
