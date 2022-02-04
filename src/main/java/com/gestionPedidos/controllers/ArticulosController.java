@@ -48,9 +48,9 @@ public class ArticulosController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public boolean eliminarArticulo(@RequestBody @Validated Articulos objArticulo){
-        articuloService.eliminarArticulo(objArticulo);
+    @DeleteMapping
+    public boolean eliminarArticulo(@RequestParam(name = "idArt") String idArt){
+        articuloService.eliminarArticulo(idArt);
         return true;
     }
 

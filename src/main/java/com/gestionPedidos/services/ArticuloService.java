@@ -5,10 +5,12 @@ import com.gestionPedidos.repository.ArticulosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class ArticuloService {
 
     @Autowired
@@ -26,7 +28,7 @@ public class ArticuloService {
         return (Articulos) articulosRepository.save(objArticulo);
     }
 
-    public void eliminarArticulo(Articulos objArticulo){
-        articulosRepository.delete(objArticulo);
+    public void eliminarArticulo(String idArt){
+        articulosRepository.deleteArticulosByIdArt(idArt);
     }
 }

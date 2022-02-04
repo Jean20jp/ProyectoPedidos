@@ -17,7 +17,7 @@ const getArticulos = () => {
                     <td>${articulo.pesArt}</td>
                     <td>
                         <button type="button" class="btn btn-warning" onclick="getArticulo(${articulo.idArt})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editar</button>
-                        <button type="button" class="btn btn-danger" onclick="deleteArticulo(${articulo})">Eliminar</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteArticulo(${articulo.idArt})">Eliminar</button>
                     </td>
                 </tr>
                 `;
@@ -97,7 +97,7 @@ const getArticulo = (idArt) => {
         success: function (articulo) {
             $('#id').val(articulo.idArt);
             $('#nombre').val(articulo.nomArt);
-            $('#apellido').val(articulo.pesArt);
+            $('#peso').val(articulo.pesArt);
             $('#id').attr('disabled', true);
             $('#btn-aceptar').attr("onclick", "editArticulo()");
 
@@ -141,17 +141,13 @@ const editArticulo = () => {
     }
 }
 
-const deleteArticulo = (articulo) => {
-    console.log(articulo.idArt);
-    console.log(articulo.nomArt);
-    console.log(articulo.pesArt);
+const deleteArticulo = (idArt) => {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8081/articulos",
-        data: JSON.stringify(articulo),
+        url: "http://localhost:8081/articulos?idArt=" + idArt,
         success: function (response) {
             alert(response.mensaje)
-            getEstudiantes();
+            getArticulos();
         },
         error: function (error) {
             alert(error.responseJSON.mensaje);
