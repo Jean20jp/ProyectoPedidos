@@ -1,5 +1,6 @@
 package com.gestionPedidos.controllers;
 
+import com.gestionPedidos.models.Articulos;
 import com.gestionPedidos.models.Clientes;
 import com.gestionPedidos.services.ClienteService;
 import com.gestionPedidos.utils.ModelUtils;
@@ -21,7 +22,12 @@ public class ClientesController {
 
     @GetMapping(produces = "application/json")
     public List<Clientes> obtenerClientes() {
-        return clienteService.obtenerCliente();
+        return clienteService.obtenerClientes();
+    }
+
+    @GetMapping("/cliente")
+    public Clientes obtenerClientes(@RequestParam(name = "idCli") String idArt){
+        return clienteService.obtenerCliente(idArt);
     }
 
     @PostMapping(produces = "application/json")

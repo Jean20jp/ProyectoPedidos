@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilosArticulo.css">
+    <title>Clientes</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">Nuevo</button>
+    <table class="table table-bordered" id="tabla-clientes">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Id Clientes</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Saldo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td>3453</td>
+                <td>Luis</td>
+                <td>Ortiz</td>
+                <td>250</td>
+                <td>
+                    <button class="btn btn-warning">Editar</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-center alert alert-danger" id="mensaje"></p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="idcli" class="form-label">Id Cliente:</label>
+                            <input type="text" class="form-control" id="idcli">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nomcli" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nomcli">
+                        </div>
+                        <div class="mb-3">
+                            <label for="aplecli" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apecli">
+                        </div>
+                        <div class="mb-3">
+                            <label for="salcli" class="form-label">Saldo:</label>
+                            <input type="text" class="form-control" id="salcli">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contcli" class="form-label">Contraseña:</label>
+                            <input type="text" class="form-control" id="contcli">
+                        </div>
+                <p class="alert alert-danger" id="mensaje-formulario"></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-cerrar" type="button" class="btn btn-secondary" onclick="limpiarCampos()"
+                    data-bs-dismiss="modal">Cerrar</button>
+                <button id="btn-aceptar" type="button" class="btn btn-primary" onclick="setCliente()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/Entidades/clientes.js"></script>
+</body>
+
+</html>
