@@ -1,82 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilosArticulo.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/estilosInicio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <title>Articulos</title>
 </head>
+
 <body>
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><i class="fas fa-users"></i><a href="#">Clientes</a></li>
+            <li class="nav__li"><i class="fas fa-tags"></i><a href="#">Articulos</a></li>
+            <li class="nav__li"><i class="fas fa-store-alt"></i><a href="#">Pedidos</a></li>
+        </ul>
+    </nav>
     <div class="container"></div>
 
-    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Nuevo</button>
+    <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">Nuevo</button>
 
-        <table class="table table-bordered" id="tabla-articulos">
-            <thead class="table-dark text-center">
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Peso</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <tr>
-                    <td>001</td>
-                    <td>Raqueta</td>
-                    <td>2</td>
-                    <td>
-                        <button class="btn btn-warning">Editeear</button>
-                        <button class="btn btn-danger">Eliminar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table table-bordered" id="tabla-articulos">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Peso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td>001</td>
+                <td>Raqueta</td>
+                <td>2</td>
+                <td>
+                    <button class="btn btn-warning">Editeear</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-        <p class="text-center alert alert-danger" id="mensaje"></p>
+    <p class="text-center alert alert-danger" id="mensaje"></p>
 
     </div>
 
     <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Articulo</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-              <div class="mb-3">
-                  <label for="id" class="form-label">Id:</label>
-                  <input type="text" class="form-control" id="id">
-              </div>
-              <div class="mb-3">
-                  <label for="nombre" class="form-label">Nombre:</label>
-                  <input type="text" class="form-control" id="nombre">
-              </div>
-              <div class="mb-3">
-                  <label for="peso" class="form-label">Peso:</label>
-                  <input type="text" class="form-control" id="peso">
-              </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Articulo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="id" class="form-label">Id:</label>
+                            <input type="text" class="form-control" id="id">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="peso" class="form-label">Peso:</label>
+                            <input type="text" class="form-control" id="peso">
+                        </div>
 
-              <p class="alert alert-danger" id="mensaje-formulario"></p>
-          </form>
+                        <p class="alert alert-danger" id="mensaje-formulario"></p>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-cerrar" type="button" class="btn btn-secondary" onclick="limpiarCampos()"
+                        data-bs-dismiss="modal">Cerrar</button>
+                    <button id="btn-aceptar" type="button" class="btn btn-primary"
+                        onclick="setArticulo()">Aceptar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button id="btn-cerrar" type="button" class="btn btn-secondary" 
-          onclick="limpiarCampos()" data-bs-dismiss="modal">Cerrar</button>
-          <button id="btn-aceptar" type="button" class="btn btn-primary"
-           onclick="setArticulo()">Aceptar</button>
-        </div>
-      </div>
     </div>
-  </div>
 
+    <footer>
+        © Derechos Reservados, 2021
+    </footer>
+    
+    <script src="https://kit.fontawesome.com/0d3b043a5e.js" crossorigin="anonymous"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/Entidades/articulos.js"></script>
 </body>
+
 </html>
