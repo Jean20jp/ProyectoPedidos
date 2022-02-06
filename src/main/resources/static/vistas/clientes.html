@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilosCliente.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/estilosInicio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Clientes</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><i class="fas fa-users"></i><a href="#">Clientes</a></li>
+            <li class="nav__li"><i class="fas fa-tags"></i><a href="#">Articulos</a></li>
+            <li class="nav__li"><i class="fas fa-store-alt"></i><a href="#">Pedidos</a></li>
+        </ul>
+    </nav>
+    <div class="container"></div>
+
+    <h2 class=" text-center mt-2">Tabla de Clientes</h2>
+
+    <table class="table table-bordered mt-3" id="tabla-clientes">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Cedula</th>
+                <th>Contraseña</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Saldo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td>1801</td>
+                <td>1234</td>
+                <td>Fernando</td>
+                <td>Fernando</td>
+                <td>0</td>
+                <td>
+                    <button class="btn btn-warning">Editar</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="text-center alert alert-danger" id="mensaje"></p>
+
+    </div>
+
+    <footer>
+        © Derechos Reservados, 2021
+    </footer>
+    
+    <script src="https://kit.fontawesome.com/0d3b043a5e.js" crossorigin="anonymous"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/Entidades/clientes.js"></script>
+</body>
+
+</html>
