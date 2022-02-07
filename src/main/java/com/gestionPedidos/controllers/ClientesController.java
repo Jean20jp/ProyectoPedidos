@@ -52,9 +52,9 @@ public class ClientesController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public boolean eliminarCliente(@RequestBody @Validated Clientes objCliente) {
-        clienteService.eliminarCliente(objCliente);
+    @DeleteMapping
+    public boolean eliminarCliente(@RequestParam(name = "idCli") String idCli) {
+        clienteService.eliminarCliente(idCli);
         return true;
     }
 

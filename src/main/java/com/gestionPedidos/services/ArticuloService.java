@@ -24,7 +24,7 @@ public class ArticuloService {
     }
 
     public Articulos insertarArticulo(Articulos objArticulo){
-        return (Articulos) articulosRepository.save(objArticulo);
+        return  articulosRepository.save(objArticulo);
     }
 
     public void eliminarArticulo(String idArt){

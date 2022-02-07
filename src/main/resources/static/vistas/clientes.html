@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    <nav class="nav">
+        <ul class="nav_ul">
+            <li class="nav_li"><i class="fas fa-users"></i><a href="#">Clientes</a></li>
+            <li class="nav_li"><i class="fas fa-tags"></i><a href="#">Articulos</a></li>
+            <li class="nav_li"><i class="fas fa-store-alt"></i><a href="#">Pedidos</a></li>
+        </ul>
+    </nav>
     <div class="container"></div>
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal"
         data-bs-target="#staticBackdrop">Nuevo</button>
@@ -67,10 +74,9 @@
                             <label for="salcli" class="form-label">Saldo:</label>
                             <input type="text" class="form-control" id="salcli">
                         </div>
-                        </div>
                         <div class="mb-3">
                             <label for="contcli" class="form-label">Contraseña:</label>
-                            <input type="text" class="form-control" id="contcli">
+                            <input type="password" class="form-control" id="contcli">
                         </div>
                 <p class="alert alert-danger" id="mensaje-formulario"></p>
                 </form>
@@ -82,7 +88,9 @@
             </div>
         </div>
     </div>
-    </div>
+    <footer>
+        © Derechos Reservados, 2021
+    </footer>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/Entidades/clientes.js"></script>

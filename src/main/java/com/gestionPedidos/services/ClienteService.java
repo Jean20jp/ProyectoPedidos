@@ -6,9 +6,11 @@ import com.gestionPedidos.repository.ClientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class ClienteService  {
 
     @Autowired
@@ -26,7 +28,7 @@ public class ClienteService  {
         return (Clientes) clientesRepository.save(objCliente);
     }
 
-    public void eliminarCliente(Clientes objcliente){
-        clientesRepository.delete(objcliente);
+    public void eliminarCliente(String idCli){
+        clientesRepository.deleteClienteByIdCli(idCli);
     }
 }

@@ -88,7 +88,7 @@ const validarCampos = (idcli, nomcli, apecli, salcli, contcli) => {
         $('#mensaje-formulario').text("Se debe rellenar todos los campos");
         setTimeout(() => {
             $('#mensaje-formulario').toggle();
-        }, 1500);
+        }, 100);
         $('#mensaje-formulario').toggle();
         return false;
     } else { 
@@ -106,7 +106,7 @@ const getCliente = (idCli) => {
             $('#nomcli').val(cliente.nomCli);
             $('#apecli').val(cliente.apeCli);
             $('#salcli').val(cliente.salCli);
-            $('#id').attr('disabled', true);
+            $('#idcli').attr('disabled', true);
             $('#btn-aceptar').attr("onclick", "editCliente()");
         },
         error: function (error) {
