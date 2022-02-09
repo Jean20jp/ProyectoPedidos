@@ -93,7 +93,7 @@ const getArticulo = (idArt) => {
     console.log(idArt);
     $.ajax({
         type: "GET",
-        url: "https://projectpedidos.herokuapp.com/articulo?idArt=" + idArt,
+        url: "https://projectpedidos.herokuapp.com/articulos/articulo?idArt=" + idArt,
         success: function (articulo) {
             $('#id').val(articulo.idArt);
             $('#nombre').val(articulo.nomArt);

@@ -97,7 +97,7 @@ const getCliente = (idCli) => {
     console.log(idCli);
     $.ajax({
         type: "GET",
-        url: "https://projectpedidos.herokuapp.com/cliente?idCli=" + idCli,
+        url: "https://projectpedidos.herokuapp.com/clientes/cliente?idCli=" + idCli,
         success: function (cliente) {
             $('#idcli').val(cliente.idCli);
             $('#nomcli').val(cliente.nomCli);
