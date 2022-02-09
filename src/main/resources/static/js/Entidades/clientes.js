@@ -183,6 +183,7 @@ const registroCliente = () => {
             dataType: "json",
             contentType: "application/json",
             success: function (response) {
+                alert("Se registrado correctamente")
             },
             error: function (error) {
 
