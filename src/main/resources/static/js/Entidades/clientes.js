@@ -15,7 +15,6 @@ const getClientes = () => {
                     <td>${cliente.idCli}</td>
                     <td>${cliente.nomCli}</td>
                     <td>${cliente.apeCli}</td>
-                    <td>${cliente.salCli}</td>
                     <td>
                         <button type="button" class="btn btn-warning" onclick="getCliente(${cliente.idCli})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editar</button>
                         <button type="button" class="btn btn-danger" onclick="deleteCliente(${cliente.idCli})">Eliminar</button>
@@ -36,17 +35,15 @@ const setCliente = () => {
     let idcli = $('#idcli').val();
     let nomcli = $('#nomcli').val();
     let apecli = $('#apecli').val();
-    let salcli = $('#salcli').val();
     let contcli = $('#contcli').val();
 
-    if (validarCampos(idcli, nomcli, apecli, salcli, contcli)) {
+    if (validarCampos(idcli, nomcli, apecli, contcli)) {
         
         const cliente = {
             idCli: idcli,
             nomCli: nomcli,
             apeCli: apecli,
-            salCli: salcli,
-            contCli: contcli,
+            contCli: contcli
         };
 
         $.ajax({
@@ -59,11 +56,12 @@ const setCliente = () => {
                 getClientes();
                 $("#btn-cerrar").click();
                 limpiarCampos();
-                alert(response.mensaje);
+                
             },
             error: function (error) {
 
                 $('#mensaje-formulario').text(error.responseJSON.mensaje);
+                alert("Cedula o contraseña incorrecta")
                 setTimeout(() => {
                     $('#mensaje-formulario').toggle();
                 }, 100);
@@ -77,14 +75,13 @@ const limpiarCampos = () => {
     $('#idcli').val('');
     $('#nomcli').val('');
     $('#apecli').val('');
-    $('#salcli').val('');
     $('#contcli').val('');
     $('#idcli').attr('disabled', false);
     $('#btn-aceptar').attr("onclick", "setCliente()");
 }
 
-const validarCampos = (idcli, nomcli, apecli, salcli, contcli) => {
-    if (!idcli || !nomcli || !apecli || !salcli || !contcli) {
+const validarCampos = (idcli, nomcli, apecli, contcli) => {
+    if (!idcli || !nomcli || !apecli || !contcli) {
         $('#mensaje-formulario').text("Se debe rellenar todos los campos");
         setTimeout(() => {
             $('#mensaje-formulario').toggle();
@@ -105,7 +102,7 @@ const getCliente = (idCli) => {
             $('#idcli').val(cliente.idCli);
             $('#nomcli').val(cliente.nomCli);
             $('#apecli').val(cliente.apeCli);
-            $('#salcli').val(cliente.salCli);
+            $('#contcli').val(cliente.contCli);
             $('#idcli').attr('disabled', true);
             $('#btn-aceptar').attr("onclick", "editCliente()");
         },
@@ -120,15 +117,14 @@ const editCliente = () => {
     let idCli = $('#idcli').val();
     let nomCli = $('#nomcli').val();
     let apeCli = $('#apecli').val();
-    let salCli = $('#salcli').val();
     let contCli = $('#contcli').val();
+    console.log(contCli);
 
-    if (validarCampos(idCli, nomCli, apeCli, salCli, contCli)) {
+    if (validarCampos(idCli, nomCli, apeCli, contCli)) {
         const cliente = {
             idcli: idCli,
             nomcli: nomCli,
             apecli: apeCli,
-            salcli: salCli,
             contcli: contCli
         };
         $.ajax({
@@ -138,13 +134,12 @@ const editCliente = () => {
             dataType: "json",
             contentType: "application/json",
             success: function (response) {
-                alert(response.mensaje);
                 limpiarCampos();
                 getClientes();
                 $('#btn-cerrar').click();
             },
             error: function (error) {
-                alert(error.mensaje);
+                alert(error.responseJSON.mensaje);
                 location.reload();
             }
         });
@@ -156,7 +151,7 @@ const deleteCliente = (idCli) => {
         type: "DELETE",
         url: "http://localhost:8081/clientes?idCli=" + idCli,
         success: function (response) {
-            alert(response.mensaje)
+            
             getClientes();
         },
         error: function (error) {

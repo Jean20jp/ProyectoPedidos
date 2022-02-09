@@ -158,3 +158,46 @@ const deleteDetalle = (idDet) => {
         }
     });
 }
+
+const setPedido = () => {
+    let idPed = $('#idped').val();
+    let fecPed = $('#fecped').val();
+    let idCliPer = $('#idcliper').val();
+
+    if (validarCampos(idPed, fecPed, idCliPer)) {
+        
+        const pedidos = {
+            idped: idPed,
+            fecped: fecPed,
+            idcliper: idCliPer
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/pedidos",
+            data: JSON.stringify(pedidos),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (response) {
+                $("#btn-cerrar").click();
+                limpiarCamposPed();
+                alert(pedidos.idped);
+            },
+            error: function (error) {
+
+                $('#mensaje-formulario').text(error.responseJSON.mensaje);
+                setTimeout(() => {
+                    $('#mensaje-formulario').toggle();
+                }, 100);
+                $('#mensaje-formulario').toggle();
+            }
+        });
+    }
+}
+
+const limpiarCamposPed = () => {
+    $('#idped').val('');
+    $('#fecped').val('');
+    $('#idcliper').val('');
+    $('#btn-aceptar').attr("onclick", "setPedido()");
+}

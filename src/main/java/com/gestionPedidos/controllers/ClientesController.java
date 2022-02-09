@@ -1,6 +1,5 @@
 package com.gestionPedidos.controllers;
 
-import com.gestionPedidos.models.Articulos;
 import com.gestionPedidos.models.Clientes;
 import com.gestionPedidos.services.ClienteService;
 import com.gestionPedidos.utils.ModelUtils;
@@ -44,7 +43,7 @@ public class ClientesController {
     @PutMapping(produces = "application/json")
     public Clientes actualizarCliente(@RequestBody @Validated Clientes objCliente) {
         try {
-            validarDatosCliente(objCliente);
+            validarPassword(objCliente);
             return clienteService.insertarCliente(objCliente);
         } catch (Exception e) {
             System.out.println("Error en el ingresar de datos" + e);
@@ -65,6 +64,11 @@ public class ClientesController {
             throw new Exception("Nombre No Valido");
         if (!ModelUtils.esSoloLetras(objCliente.getApeCli()))
             throw new Exception("Apellido No Valido");
+        if (!ModelUtils.validatePassword(objCliente.getContCli()))
+            throw new Exception("Contraseña no valida");
+    }
+
+    private void validarPassword(Clientes objCliente) throws Exception {
         if (!ModelUtils.validatePassword(objCliente.getContCli()))
             throw new Exception("Contraseña no valida");
     }
