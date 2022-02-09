@@ -31,4 +31,8 @@ public class ClienteService  {
     public void eliminarCliente(String idCli){
         clientesRepository.deleteClienteByIdCli(idCli);
     }
+
+    public Clientes validarCliente(String idCli, String clave){
+        return clientesRepository.findClientesByIdCliAndAndContCli(idCli, clave);
+    }
 }

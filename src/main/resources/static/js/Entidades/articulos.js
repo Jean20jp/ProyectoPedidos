@@ -54,7 +54,7 @@ const setArticulo = () => {
                 getArticulos();
                 $("#btn-cerrar").click();
                 limpiarCampos();
-                alert(response.mensaje);
+                //alert(response.mensaje);
             },
             error: function (error) {
 
@@ -128,7 +128,7 @@ const editArticulo = () => {
             dataType: "json",
             contentType: "application/json",
             success: function (response) {
-                alert(response.mensaje);
+                alert("Articulo Editado");
                 limpiarCampos();
                 getArticulos();
                 $('#btn-cerrar').click();
@@ -146,7 +146,7 @@ const deleteArticulo = (idArt) => {
         type: "DELETE",
         url: "http://localhost:8081/articulos?idArt=" + idArt,
         success: function (response) {
-            alert(response.mensaje)
+            alert("Articulo Eliminado Correctamente")
             getArticulos();
         },
         error: function (error) {

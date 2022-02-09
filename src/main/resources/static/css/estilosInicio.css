@@ -32,29 +32,13 @@
     color: #fff;
 }
 
-.nav__li_leave {
-    display: inline-block;
-    margin-left: 1100px;
-    padding-top: 10px;
-    padding-left: 12px;
-    padding-bottom: 0;
-    color: #fff;
-}
 
 .nav__li:hover > a {
     color: #bbb;
 }
 
-.nav__li_leave:hover > a {
-    color: #bbb;
-}
 
 .nav__li:hover {
-    color: #bbb;
-    cursor: pointer;
-}
-
-.nav__li_leave:hover {
     color: #bbb;
     cursor: pointer;
 }
@@ -70,12 +54,6 @@
 }
 
 .nav__li i {
-    box-sizing:  border-box;
-    text-align: right;
-    margin-right: 5px;
-}
-
-.nav__li_leave i {
     box-sizing:  border-box;
     text-align: right;
     margin-right: 5px;

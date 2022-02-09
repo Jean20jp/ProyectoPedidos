@@ -122,10 +122,10 @@ const editCliente = () => {
 
     if (validarCampos(idCli, nomCli, apeCli, contCli)) {
         const cliente = {
-            idcli: idCli,
-            nomcli: nomCli,
-            apecli: apeCli,
-            contcli: contCli
+            idCli: idCli,
+            nomCli: nomCli,
+            apeCli: apeCli,
+            contCli: contCli
         };
         $.ajax({
             type: "PUT",
@@ -159,4 +159,40 @@ const deleteCliente = (idCli) => {
             location.reload();
         }
     });
+}
+
+const registroCliente = () => {
+    let idcli = $('#cedula').val();
+    let nomcli = $('#nombre').val();
+    let apecli = $('#apellido').val();
+    let contcli = $('#contraseña').val();
+
+    if (validarCampos(idcli, nomcli, apecli, contcli)) {
+        
+        const cliente = {
+            idCli: idcli,
+            nomCli: nomcli,
+            apeCli: apecli,
+            contCli: contcli
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/clientes",
+            data: JSON.stringify(cliente),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (response) {
+            },
+            error: function (error) {
+
+                $('#mensaje-formulario').text(error.responseJSON.mensaje);
+                alert("Cedula o contraseña incorrecta")
+                setTimeout(() => {
+                    $('#mensaje-formulario').toggle();
+                }, 100);
+                $('#mensaje-formulario').toggle();
+            }
+        });
+    }
 }

@@ -72,4 +72,9 @@ public class ClientesController {
         if (!ModelUtils.validatePassword(objCliente.getContCli()))
             throw new Exception("Contraseña no valida");
     }
+
+    @GetMapping("/validar")
+    public Clientes validarCliente(@RequestParam(name = "idCli") String idCli, @RequestParam(name = "contCli") String clave){
+        return clienteService.validarCliente(idCli, clave);
+    }
 }

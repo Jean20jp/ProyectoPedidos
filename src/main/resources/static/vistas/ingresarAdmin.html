@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" type="text/css" href="../css/index.css" th:href="@{/css/index.css}">
 
 </head>
 
@@ -21,7 +21,7 @@
         <div class="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
-                    <img src="img/user.png" th:src="@{/img/user.png}" />
+                    <img src="../img/user.png" th:src="@{/img/user.png}" />
                 </div>
                 <form class="col-12" th:action="@{menu}" method="get">
                     <div class="form-group" id="user-group">
@@ -32,9 +32,9 @@
                         <input type="password" class="form-control" placeholder="Contrasena" name="password"
                             id="clave" />
                     </div>
-                    <a class="btn btn-primary btn-lg active mb-3" onclick="validarCliente()"><i class="fas fa-arrow-right-to-bracket"></i>>Ingresar</a>
-                    <a class="btn btn-primary btn-lg active mb-3" href="vistas/ingresarAdmin.html">Ingresar como Administrador</a>
-                    <a class="btn btn-primary btn-lg active mb-3" href="vistas/registro.html">Registrarse</a>
+                    <a class="btn btn-primary btn-lg active mb-3" onclick="validarAdmin()">Ingresar</a>
+                    <a class="btn btn-primary btn-lg active mb-3" href="../index.html">Volver</a>
+                    
                 </form>
             </div>
         </div>

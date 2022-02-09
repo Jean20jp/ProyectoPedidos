@@ -167,9 +167,9 @@ const setPedido = () => {
     if (validarCampos(idPed, fecPed, idCliPer)) {
         
         const pedidos = {
-            idped: idPed,
-            fecped: fecPed,
-            idcliper: idCliPer
+            idPed : idPed,
+            fec_ped: fecPed,
+            idCli: idCliPer
         };
 
         $.ajax({
@@ -179,9 +179,9 @@ const setPedido = () => {
             dataType: "json",
             contentType: "application/json",
             success: function (response) {
+                alert("PEDIDO CREADO -> el id para su pedido es: " + idPed);
                 $("#btn-cerrar").click();
                 limpiarCamposPed();
-                alert(pedidos.idped);
             },
             error: function (error) {
 
@@ -199,5 +199,6 @@ const limpiarCamposPed = () => {
     $('#idped').val('');
     $('#fecped').val('');
     $('#idcliper').val('');
-    $('#btn-aceptar').attr("onclick", "setPedido()");
+    $('#btn-aceptar').attr("onclick");
 }
+

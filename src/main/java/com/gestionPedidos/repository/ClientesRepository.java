@@ -7,4 +7,5 @@ public interface ClientesRepository extends CrudRepository<Clientes,String> {
 
     Clientes findClienteByIdCli(String idCli);
     void deleteClienteByIdCli(String idCli);
+    Clientes findClientesByIdCliAndAndContCli(String cedula, String clave);
 }
