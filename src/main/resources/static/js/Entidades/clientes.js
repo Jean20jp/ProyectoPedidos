@@ -183,12 +183,12 @@ const registroCliente = () => {
             dataType: "json",
             contentType: "application/json",
             success: function (response) {
-                alert("Se registrado correctamente")
+                alert("Se registrado correctamente");
             },
             error: function (error) {
 
                 $('#mensaje-formulario').text(error.responseJSON.mensaje);
-                alert("Cedula o contraseña incorrecta")
+                alert("Cedula o contraseña incorrecta");
                 setTimeout(() => {
                     $('#mensaje-formulario').toggle();
                 }, 100);
