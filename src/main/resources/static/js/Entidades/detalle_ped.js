@@ -7,7 +7,7 @@ const getDetalles = () => {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/detalle_ped",
+        url: "https://projectpedidos.herokuapp.com/detalle_ped",
         success: function (response) {
             $.each(response, function (i, detalle) {
                 let row = `
@@ -48,7 +48,7 @@ const setDetalle = () => {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/detalle_ped",
+            url: "https://projectpedidos.herokuapp.com/detalle_ped",
             data: JSON.stringify(detalle),
             dataType: "json",
             contentType: "application/json",
@@ -94,7 +94,7 @@ const getDetalle = (idDet) => {
     console.log(idDet);
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/detalle_ped/detalle?idDet=" + idDet,
+        url: "https://projectpedidos.herokuapp.com/detalle_ped/detalle?idDet=" + idDet,
         success: function (detalle) {
             $('#id-det').val(detalle.idDet);
             $('#id-ped').val(detalle.idPed);
@@ -126,7 +126,7 @@ const editDetalle = () => {
         };
         $.ajax({
             type: "PUT",
-            url: "http://localhost:8081/detalle_ped",
+            url: "https://projectpedidos.herokuapp.com/detalle_ped",
             data: JSON.stringify(detalle),
             dataType: "json",
             contentType: "application/json",
@@ -147,7 +147,7 @@ const editDetalle = () => {
 const deleteDetalle = (idDet) => {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8081/detalle_ped?idDet=" + idDet,
+        url: "https://projectpedidos.herokuapp.com/detalle_ped?idDet=" + idDet,
         success: function (response) {
             //alert(response.mensaje)
             getDetalles();
@@ -174,7 +174,7 @@ const setPedido = () => {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/pedidos",
+            url: "https://projectpedidos.herokuapp.com/pedidos",
             data: JSON.stringify(pedidos),
             dataType: "json",
             contentType: "application/json",

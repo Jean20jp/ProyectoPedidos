@@ -7,7 +7,7 @@ const getArticulos = () => {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/articulos",
+        url: "https://projectpedidos.herokuapp.com/articulos",
         success: function (response) {
             $.each(response, function (i, articulo) {
                 let row = `
@@ -46,7 +46,7 @@ const setArticulo = () => {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/articulos",
+            url: "https://projectpedidos.herokuapp.com/articulos",
             data: JSON.stringify(articulo),
             dataType: "json",
             contentType: "application/json",
@@ -93,7 +93,7 @@ const getArticulo = (idArt) => {
     console.log(idArt);
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/articulos/articulo?idArt=" + idArt,
+        url: "https://projectpedidos.herokuapp.com/articulo?idArt=" + idArt,
         success: function (articulo) {
             $('#id').val(articulo.idArt);
             $('#nombre').val(articulo.nomArt);
@@ -123,7 +123,7 @@ const editArticulo = () => {
         };
         $.ajax({
             type: "PUT",
-            url: "http://localhost:8081/articulos",
+            url: "https://projectpedidos.herokuapp.com/articulos",
             data: JSON.stringify(articulo),
             dataType: "json",
             contentType: "application/json",
@@ -144,7 +144,7 @@ const editArticulo = () => {
 const deleteArticulo = (idArt) => {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8081/articulos?idArt=" + idArt,
+        url: "https://projectpedidos.herokuapp.com/articulos?idArt=" + idArt,
         success: function (response) {
             alert("Articulo Eliminado Correctamente")
             getArticulos();

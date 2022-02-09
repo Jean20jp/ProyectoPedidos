@@ -19,7 +19,7 @@ public class Clientes implements Serializable {
     @Id
     @Column(name = "id_cli")
     private String idCli;
-    
+
     @Column(name = "cont_cli")
     private String contCli;
 

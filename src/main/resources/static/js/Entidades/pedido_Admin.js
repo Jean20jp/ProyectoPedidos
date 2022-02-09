@@ -8,7 +8,7 @@ const getPedidos = () => {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/pedidos",
+        url: "https://projectpedidos.herokuapp.com/pedidos",
         success: function (response) {
             $.each(response, function (i, detalle) {
                 let row = `
@@ -36,7 +36,7 @@ const getPedido = (cedula) => {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/pedidos/pedidoCed?idCli=" + cedula,
+        url: "https://projectpedidos.herokuapp.com/pedidos/pedidoCed?idCli=" + cedula,
         success: function (response) {
             $.each(response, function (i, pedido) {
                 let row = `
@@ -64,7 +64,7 @@ const getDetalles = () => {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/detalle_ped",
+        url: "https://projectpedidos.herokuapp.com/detalle_ped",
         success: function (response) {
             $.each(response, function (i, detalle) {
                 let row = `
@@ -91,7 +91,7 @@ const getDetalles = () => {
 const deletePedido = (idPed) => {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8081/pedidos?idPed=" + idPed,
+        url: "https://projectpedidos.herokuapp.com/pedidos?idPed=" + idPed,
         success: function (response) {
             //alert(response.mensaje)
             getDetalles();
@@ -107,7 +107,7 @@ const deletePedido = (idPed) => {
 const deleteDetalle = (idDet) => {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8081/detalle_ped?idDet=" + idDet,
+        url: "https://projectpedidos.herokuapp.com/detalle_ped?idDet=" + idDet,
         success: function (response) {
             //alert(response.mensaje)
             getDetalles();

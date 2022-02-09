@@ -5,10 +5,10 @@ const validarCliente = () => {
     console.log(clave);
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/clientes/validar?idCli=" + user + "&contCli=" + clave,
+        url: "https://projectpedidos.herokuapp.com/clientes/validar?idCli=" + user + "&contCli=" + clave,
         success: function (response) {
             $.each(response, function (i, cliente) {
-                window.location.href = "http://127.0.0.1:5500/vistas/pedidos.html";
+                window.location.href = "https://projectpedidos.herokuapp.com/vistas/pedidos.html";
             });
         },
         error: function (error) {
@@ -25,10 +25,10 @@ const validarAdmin = () => {
     console.log(clave);
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/admin/validar?user=" + user + "&clave=" + clave,
+        url: "https://projectpedidos.herokuapp.com/admin/validar?user=" + user + "&clave=" + clave,
         success: function (response) {
             $.each(response, function (i, cliente) {
-                window.location.href = "http://127.0.0.1:5500/vistas/articulos.html";
+                window.location.href = "https://projectpedidos.herokuapp.com/vistas/articulos.html";
             });
         },
         error: function (error) {

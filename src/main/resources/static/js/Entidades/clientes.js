@@ -7,7 +7,7 @@ const getClientes = () => {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/clientes",
+        url: "https://projectpedidos.herokuapp.com/clientes",
         success: function (response) {
             $.each(response, function (i, cliente) {
                 let row = `
@@ -48,7 +48,7 @@ const setCliente = () => {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/clientes",
+            url: "https://projectpedidos.herokuapp.com/clientes",
             data: JSON.stringify(cliente),
             dataType: "json",
             contentType: "application/json",
@@ -97,7 +97,7 @@ const getCliente = (idCli) => {
     console.log(idCli);
     $.ajax({
         type: "GET",
-        url: "http://localhost:8081/clientes/cliente?idCli=" + idCli,
+        url: "https://projectpedidos.herokuapp.com/cliente?idCli=" + idCli,
         success: function (cliente) {
             $('#idcli').val(cliente.idCli);
             $('#nomcli').val(cliente.nomCli);
@@ -129,7 +129,7 @@ const editCliente = () => {
         };
         $.ajax({
             type: "PUT",
-            url: "http://localhost:8081/clientes",
+            url: "https://projectpedidos.herokuapp.com/clientes",
             data: JSON.stringify(cliente),
             dataType: "json",
             contentType: "application/json",
@@ -149,7 +149,7 @@ const editCliente = () => {
 const deleteCliente = (idCli) => {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8081/clientes?idCli=" + idCli,
+        url: "https://projectpedidos.herokuapp.com/clientes?idCli=" + idCli,
         success: function (response) {
             
             getClientes();
@@ -178,7 +178,7 @@ const registroCliente = () => {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8081/clientes",
+            url: "https://projectpedidos.herokuapp.com/clientes",
             data: JSON.stringify(cliente),
             dataType: "json",
             contentType: "application/json",
