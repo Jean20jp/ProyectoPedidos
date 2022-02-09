@@ -19,8 +19,7 @@ public class Clientes implements Serializable {
     @Id
     @Column(name = "id_cli")
     private String idCli;
-
-
+    
     @Column(name = "cont_cli")
     private String contCli;
 
@@ -29,9 +28,6 @@ public class Clientes implements Serializable {
 
     @Column(name = "ape_cli")
     private String apeCli;
-
-    @Column(name = "sal_cli")
-    private int salCli;
 
     public String getIdCli() {
         return idCli;
@@ -65,11 +61,4 @@ public class Clientes implements Serializable {
         this.apeCli = apeCli;
     }
 
-    public int getSalCli() {
-        return salCli;
-    }
-
-    public void setSalCli(int salCli) {
-        this.salCli = salCli;
-    }
 }
