@@ -23,6 +23,11 @@ public class PedidosController {
         return pedidoService.obtenerPedido();
     }
 
+    @GetMapping("/pedidoCed")
+    public Pedidos obtenerPedidoByCed(@RequestParam("idCli")String cedula){
+        return pedidoService.obtenerPedidoByCed(cedula);
+    }
+
     @PostMapping(produces = "application/json")
     public Pedidos ingresarPedido(@RequestBody @Validated Pedidos objPedido) {
         try {
@@ -43,9 +48,9 @@ public class PedidosController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public boolean eliminarPedido(@RequestBody @Validated Pedidos objPedido) {
-        pedidoService.eliminarPedido(objPedido);
+    @DeleteMapping
+    public boolean eliminarPedido(@RequestParam("idPed") int idPed) {
+        pedidoService.eliminarPedido(idPed);
         return true;
     }
 

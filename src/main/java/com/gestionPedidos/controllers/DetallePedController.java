@@ -23,6 +23,11 @@ public class DetallePedController {
         return detallePedService.obtenerDetallePed();
     }
 
+    @GetMapping("/detalle")
+    public DetallePed obtenerDetalle(@RequestParam(name = "idDet") int idDed){
+        return detallePedService.obtenerDetallePed(idDed);
+    }
+
     @PostMapping(produces = "application/json")
     public DetallePed ingresarDetallePed(@RequestBody @Validated DetallePed objDetallePed) {
         try {
@@ -43,9 +48,9 @@ public class DetallePedController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public boolean eliminarDetallePed(@RequestBody @Validated DetallePed objDetallePed) {
-        detallePedService.eliminarDetallePed(objDetallePed);
+    @DeleteMapping
+    public boolean eliminarArticulo(@RequestParam(name = "idDet") int idDet){
+        detallePedService.eliminarDetallePed(idDet);
         return true;
     }
 }

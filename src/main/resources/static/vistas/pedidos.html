@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/estilosArticulo.css">
+    <link rel="stylesheet" href="../css/estilosPedido.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/estilosInicio.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,22 +17,27 @@
 <body>
     <nav class="nav">
         <ul class="nav__ul">
-            <li class="nav__li"><i class="fas fa-users"></i><a href="#">Clientes</a></li>
-            <li class="nav__li"><i class="fas fa-tags"></i><a href="#">Articulos</a></li>
             <li class="nav__li"><i class="fas fa-store-alt"></i><a href="#">Pedidos</a></li>
+            <li class="nav__li_leave"><i class="fas fa-arrow-right"></i><a href="#">Salir</a></li>
         </ul>
     </nav>
-    <div class="container"></div>
+
+    <div class="mt-3 text-center">
+        <h3>Realizar un Pedido</h3>
+    </div>
 
     <button type="button" class="btn btn-primary mb-3 mt-3" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop">Nuevo</button>
+        data-bs-target="#staticBackdrop">Ingresar Producto</button>
+    
+    <button type="button" class="btn btn-primary mb-3 mt-3" id="crear-pedido" onclick="crearPedido()">Crear Nuevo Pedido</button>
 
-    <table class="table table-bordered" id="tabla-articulos">
+    <table class="table table-bordered" id="tabla-detalle">
         <thead class="table-dark text-center">
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Peso</th>
+                <th>Id Detalle</th>
+                <th>Id Pedido</th>
+                <th>Cantidad</th>
+                <th>Id Articulo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -65,16 +70,20 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="id" class="form-label">Id:</label>
-                            <input type="text" class="form-control" id="id">
+                            <label for="id-det" class="form-label">Id Detalle:</label>
+                            <input type="text" class="form-control" id="id-det" readonly="readonly" placeholder="Id Automatico">
                         </div>
                         <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre">
+                            <label for="id-ped" class="form-label">Id Pedido:</label>
+                            <input type="text" class="form-control" id="id-ped"">
                         </div>
                         <div class="mb-3">
-                            <label for="peso" class="form-label">Peso:</label>
-                            <input type="text" class="form-control" id="peso">
+                            <label for="cantidad" class="form-label">Cantidad:</label>
+                            <input type="text" class="form-control" id="cantidad">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id-art" class="form-label">Id Articulo:</label>
+                            <input type="text" class="form-control" id="id-art">
                         </div>
 
                         <p class="alert alert-danger" id="mensaje-formulario"></p>
@@ -84,7 +93,7 @@
                     <button id="btn-cerrar" type="button" class="btn btn-secondary" onclick="limpiarCampos()"
                         data-bs-dismiss="modal">Cerrar</button>
                     <button id="btn-aceptar" type="button" class="btn btn-primary"
-                        onclick="setArticulo()">Aceptar</button>
+                        onclick="setDetalle()">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -97,7 +106,7 @@
     <script src="https://kit.fontawesome.com/0d3b043a5e.js" crossorigin="anonymous"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/Entidades/articulos.js"></script>
+    <script src="../js/Entidades/detalle_ped.js"></script>
 </body>
 
 </html>
